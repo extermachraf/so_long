@@ -6,7 +6,7 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 17:17:15 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/07 06:59:01 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/09 03:41:07 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,6 @@ int		calc_lent(t_data *game, char c)
 
 void	fill_map(t_data *game)
 {
-	int x;
-	int y;
-
-	x = calc_lent(game, 'x');
-	y = calc_lent(game, 'y');
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, (x * 64), (y * 64), "solong");
 	game->empty = mlx_xpm_file_to_image(game->mlx, "ac.xpm", &game->x, &game->y);
 	game->wall = mlx_xpm_file_to_image(game->mlx, "wall.xpm", &game->x, &game->y);
 	game->hero = mlx_xpm_file_to_image(game->mlx, "hero.xpm", &game->x, &game->y);
@@ -85,12 +78,49 @@ void	fill_map(t_data *game)
 	game->exi = mlx_xpm_file_to_image(game->mlx, "exit.xpm", &game->x, &game->y);
 }
 
+int management(int keycode, t_data *game)
+{
+	printf("%d\n", keycode);
+	if(keycode == 13 && game->map[game->px - 1][game->py] != '1')
+	{
+		game->map[game->px][game->py] = '0';
+		game->map[game->px - 1][game->py] = 'P';
+		game->px--;
+	}
+	else if(keycode == 1 && game->map[game->px + 1][game->py] != '1')
+	{
+		game->map[game->px][game->py] = '0';
+		game->map[game->px + 1][game->py] = 'P';
+		game->px++;
+	}
+	else if(keycode == 2 && game->map[game->px][game->py + 1] != '1')
+	{
+		game->map[game->px][game->py] = '0';
+		game->map[game->px][game->py + 1] = 'P';
+		game->py++;
+	}
+	else if(keycode == 0 && game->map[game->px][game->py - 1] != '1')
+	{
+		game->map[game->px][game->py] = '0';
+		game->map[game->px][game->py - 1] = 'P';
+		game->py--;
+	}
+	display_ground(game);
+	return (1);
+}
 int main(int ac, char **av)
 {
 	t_data	game;
-	
+	int		c;
+
+	c = 0;
 	game.map = return_map(av[1]);
+	chek_wall(game.map);
+	c = chek_PCE(game.map, &game);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, (ft_strlen(game.map[0]) * 64), (ft_2strlen(game.map) * 64), "solong");
 	fill_map(&game);
 	display_ground(&game);
+	mlx_key_hook(game.win, management, &game);
 	mlx_loop(game.mlx);
 }

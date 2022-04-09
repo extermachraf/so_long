@@ -6,16 +6,16 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 01:51:19 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/03/31 03:20:32 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/07 22:18:28 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-size_t	ft_strlen(const char	*s)
+int	ft_strlen(const char	*s)
 {
 	char	*l;
-	size_t	i;
+	int	i;
 
 	l = (char *)s;
 	i = 0;

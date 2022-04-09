@@ -6,7 +6,7 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 03:15:44 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/07 06:03:21 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/08 07:56:49 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,29 @@ char **split_map(char *c)
 	
 	spl_map = ft_split(c, '\n');
 	return (spl_map);
+}
+
+void	chek_wall(char **c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = ft_2strlen(c) - 1;
+	while (c[0][i])
+	{
+		if (c[0][i] != '1' || c[j][i] != '1')
+		{
+			put_eror("map not surrounded by walls\n");
+		}
+		i++;
+	}
+	i = 1;
+	j = ft_strlen(c[1])- 1;
+	while (c[i])
+	{
+		if (c[i][0] != '1' || c[i][j] != '1')
+			put_eror("map not surrounded by walls\n");
+		i++;
+	}
 }
