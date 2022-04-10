@@ -6,7 +6,7 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 01:51:19 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/07 22:18:28 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/10 06:55:05 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strlen(const char	*s)
 {
 	char	*l;
-	int	i;
+	int		i;
 
 	l = (char *)s;
 	i = 0;

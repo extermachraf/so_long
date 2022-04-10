@@ -6,13 +6,13 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 08:04:33 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/08 20:52:36 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/10 00:27:22 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-void	chek_P(char **str, t_data *game)
+void	chek_p(char **str, t_data *game)
 {
 	int	i;
 	int	j;
@@ -39,7 +39,7 @@ void	chek_P(char **str, t_data *game)
 		put_eror("you can have only one player\n");
 }
 
-int	chek_C(char **str)
+int	chek_c(char **str)
 {
 	int	i;
 	int	j;
@@ -63,8 +63,7 @@ int	chek_C(char **str)
 	return (c);
 }
 
-
-void	chek_E(char **str)
+void	chek_e(char **str)
 {
 	int	i;
 	int	j;
@@ -87,11 +86,12 @@ void	chek_E(char **str)
 		put_eror("you need to have at least one exit in your map \n");
 }
 
-int	chek_PCE(char **str, t_data *game)
+int	chek_pce(char **str, t_data *game)
 {
-	int i;
-	chek_P(str, game);
-	chek_E(str);
-	i = chek_C(str);
-	return(i);
+	int	i;
+
+	chek_p(str, game);
+	chek_e(str);
+	i = chek_c(str);
+	return (i);
 }

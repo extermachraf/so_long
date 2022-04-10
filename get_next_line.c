@@ -6,7 +6,7 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 01:50:29 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/01 22:44:31 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/10 06:54:44 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,19 +80,3 @@ char	*get_next_line(int fd)
 	line = ft_line(&stock);
 	return (line);
 }
-
-/*int main ()
-{
-	int fd = open("text.txt", O_RDONLY);
- 	char *a;
- 	while ((a = get_next_line(fd)))
- 	{
- 		printf("%s", a);
- 		free(a);
- 	}
- }*/
- /*char **ft_return_get(int fd)
- {
-	 char **a;
-	 while()
- }*/

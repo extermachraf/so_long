@@ -6,21 +6,21 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 17:15:46 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/09 03:38:33 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/10 07:45:43 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 # define SOLONG_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include <fcntl.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <mlx.h>
+# include <fcntl.h>
+# include <stdio.h>
 # define BUFFER_SIZE 10
 
-typedef struct	s_data {
+typedef struct s_data {
 	void	*empty;
 	int		x;
 	int		y;
@@ -33,14 +33,16 @@ typedef struct	s_data {
 	void	*exi;
 	int		px;
 	int		py;
+	int		i;
+	int		m;
 }	t_data;
 
-typedef struct	r_data {
+typedef struct r_data {
 	int	i;
 	int	j;
 	int	p;
 	int	c;
-	int e;
+	int	e;
 }	t_parc;
 
 int		ft_strlen(const char *s);
@@ -59,6 +61,28 @@ void	put_eror(char *c);
 void	chek_P(char **str, t_data *game);
 int		chek_C(char **str);
 void	chek_E(char **str);
-int		chek_PCE(char **str, t_data *game);
-
+int		chek_pce(char **str, t_data *game);
+int		management(int keycode, t_data *game);
+void	display_ground(t_data *game);
+void	norm_manag(t_data *game, char c);
+int		chek_exit(char **game);
+int		norm_w(t_data *game);
+int		norm_s(t_data *game);
+int		norm_d(t_data *game);
+int		norm_a(t_data *game);
+void	ft_putchar(char c);
+void	norm1_manag(t_data *game, char c);
+void	ft_putnbr(int n);
+void	chek_carac(t_data *game);
+void	chek_rect(t_data *game);
+void	chek_folder(char *av);
+void	global_err(t_data *game);
+void	check_last(t_data *game);
+void	multi_line(char *c);
+int		exit_mouse(int key);
+void	main_norm(t_data *game, int i, int j);
+void	norm_ww(t_data *game);
+void	norm_dd(t_data *game);
+void	norm_ss(t_data *game);
+void	norm_aa(t_data *game);
 #endif

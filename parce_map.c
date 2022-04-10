@@ -6,11 +6,12 @@
 /*   By: ael-kouc <ael-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 03:15:44 by ael-kouc          #+#    #+#             */
-/*   Updated: 2022/04/08 07:56:49 by ael-kouc         ###   ########.fr       */
+/*   Updated: 2022/04/10 06:52:58 by ael-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
 char	*line_map(int fd)
 {
 	char	*line;
@@ -28,13 +29,16 @@ char	*line_map(int fd)
 		free(tmp);
 		free(line);
 	}
+	if (*map == '\0')
+		put_eror("inser a correct map\n");
+	multi_line(map);
 	return (map);
 }
 
-char **split_map(char *c)
+char	**split_map(char *c)
 {
 	char	**spl_map;
-	
+
 	spl_map = ft_split(c, '\n');
 	return (spl_map);
 }
@@ -55,7 +59,7 @@ void	chek_wall(char **c)
 		i++;
 	}
 	i = 1;
-	j = ft_strlen(c[1])- 1;
+	j = ft_strlen(c[1]) - 1;
 	while (c[i])
 	{
 		if (c[i][0] != '1' || c[i][j] != '1')
